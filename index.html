@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="loginbox">
+        <img src="image/user.webp" class="user">
+        <h2>Log In Here</h2>
+
+        <form action="" method="post">
+            <p>Email</p>
+            <input type="email" name="email" placeholder="Email">
+            <br><br>
+            <p>Password</p>
+            <input type="password" name="password" placeholder="******">
+            <br><br>
+            <button type="submit" name="submitbtn" class="btn btn-success submitbtn">Submit</button>
+        </form>
+    </div>
+
+     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+  <script src="bootstrap/js/jquery.min.js"></script>
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+        setTimeout(()=>{
+            if( confirm("Do you want to accept cookies?")){
+                acceptcookie()
+            }
+           
+        },3000)
+
+
+        function acceptcookie(){           
+             $.ajax({
+                url: 'http://localhost/worksite/cookie.php',
+                type: 'POST',
+                data: {music: 'celine', category: 'afro'},
+                beforeSend: function(){
+                    $(".submitbtn").html("please wait...")
+                // },
+                // success:function(response){
+                //     console.log(response)
+                //     $("#postbtn").html("Send AJAX Post")
+
+                //     // attach response beneath the spinner button
+                //     $("#loadingspinner").after(response)
+                }
+            })
+        }
+    })
+    
+  </script>
+</body>
+</html>
