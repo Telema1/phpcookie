@@ -33,7 +33,9 @@
     $(document).ready(function(){
         setTimeout(()=>{
             if( confirm("Do you want to accept cookies?")){
-                acceptcookie()
+                acceptcookie();
+            }else{
+               console.log("You have to leave") 
             }
            
         },3000)
